@@ -1,23 +1,119 @@
-# All in One
+<p align="center">
+  <img src="docs/cover.png" alt="All in One" width="720">
+</p>
 
-Hub de games estilo console. Reúne Steam, Epic, GOG e jogos instalados à mão em um carrossel só.
+<h1 align="center">All in One</h1>
+<p align="center"><b>Just play all in one.</b><br>
+Todos os seus jogos de PC e de console num só lugar, com cara de console e feito para controle.</p>
 
-## Instalar (para quem só quer usar)
+<p align="center">
+  <a href="../../releases/latest"><b>⬇ Baixar para Windows</b></a>
+</p>
 
-1. Baixe o `AllInOne-v0.1.0-win-x64.zip` na página de **Releases** do repositório e extraia a pasta onde quiser.
-2. Abra o `All in One.exe`. Não precisa instalar nada.
-3. **Aviso do Windows:** como o app não tem assinatura digital paga, o SmartScreen pode mostrar "O Windows protegeu seu PC".
-   Clique em **Mais informações → Executar assim mesmo**. O código-fonte está aberto neste repositório para você conferir.
-4. Seus jogos da Steam, Epic e GOG aparecem sozinhos. Aperte **N** (ou Y no controle) para adicionar jogos manuais e de console.
+> **English:** a console-style game hub for Windows. It gathers Steam, Epic, GOG and manually added games (including emulated consoles) in one controller-friendly carousel, with an on-screen keyboard and optional Discord Rich Presence. Download the ZIP from [Releases](../../releases/latest), extract it and run `All in One.exe`. The interface is in Portuguese (BR).
 
-Requer Windows 10/11 de 64 bits.
+---
 
-## Como usar
+## O que é
 
-**Dê dois cliques em `dist\All in One-win32-x64\All in One.exe`.** Não precisa de Node nem de `.bat`.
-Dica: clique com o direito no `.exe` > "Fixar na barra de tarefas" ou crie um atalho na área de trabalho.
+O All in One reúne os seus jogos da **Steam**, **Epic Games** e **GOG** e também os que você adicionar à mão (qualquer `.exe`, inclusive emuladores) num único carrossel, organizado por **plataforma**: Windows, Switch, PlayStation, Xbox, SNES, GBA e muito mais.
+Dá para usar tudo só com o controle do Xbox, sem encostar no teclado.
 
-Para gerar o `.exe` de novo depois de mudar o código: `construir-exe.bat` (precisa do Node.js).
+<p align="center">
+  <img src="docs/plataformas.jpg" alt="Carrossel de plataformas" width="49%">
+  <img src="docs/jogos.jpg" alt="Carrossel de jogos" width="49%">
+</p>
+<p align="center"><sub>Capturas com dados de exemplo.</sub></p>
+
+## Destaques
+
+- **Detecta sozinho** os jogos instalados na Steam, na Epic e na GOG.
+- **Carrossel de plataformas** antes do de jogos: PC, Switch, PS1 a PS5, PSP, Vita, SNES, NES, N64, GameCube, Wii, GBA, DS, 3DS, Xbox, Xbox 360, Xbox One, Mega Drive, Dreamcast e outras.
+- **Feito para controle:** navegação completa, teclado na tela para digitar nomes e caminhos, carrossel que dá a volta (do primeiro vai ao último).
+- **Capas à sua maneira:** troque a capa de qualquer jogo, inclusive de jogos que a loja não tem imagem, ou arraste uma imagem para a janela.
+- **Jogos de console:** adicione o emulador e a ROM, escolha a plataforma e jogue pelo mesmo menu.
+- **Discord Rich Presence** opcional, com modo discreto que esconde o nome dos jogos.
+- **Abertura e encerramento animados**, música e sons sintetizados pelo próprio programa (nenhum arquivo de áudio).
+- **Sem conta, sem anúncios, sem telemetria.** Tudo fica no seu PC.
+
+## Instalar
+
+1. Baixe o `AllInOne-…-win-x64.zip` na página de [**Releases**](../../releases/latest) e extraia a pasta onde quiser.
+2. Abra o **`All in One.exe`**. Não precisa instalar nada, nem ter Node.
+3. **Aviso do Windows:** como o app não tem assinatura digital paga, o SmartScreen pode mostrar *"O Windows protegeu seu PC"*.
+   Clique em **Mais informações → Executar assim mesmo**. O código-fonte está todo aqui no repositório para você conferir.
+
+Requer Windows 10 ou 11 de 64 bits. Dica: clique com o direito no `.exe` e escolha "Fixar na barra de tarefas".
+
+## Controles
+
+| Teclado | Controle (Xbox) | Ação |
+|---|---|---|
+| ← → | direcional / analógico | navegar (do primeiro vai ao último e vice-versa) |
+| Enter | A | abrir plataforma / jogar |
+| Esc | B | voltar / fechar |
+| F | X | favoritar |
+| N | Y | adicionar jogo |
+| Tab ou I | Start | menu de opções |
+| Q / E | LB / RB | trocar filtro (ou grupo de consoles) |
+| PgUp / PgDn | LT / RT | pular uma página |
+| R | View | atualizar a biblioteca |
+| M | | ligar/desligar a música |
+| F11 | | tela cheia |
+| Ctrl+Q ou fechar a janela | | sair (pede confirmação) |
+
+Mouse também funciona: clique, roda e arrastar imagens.
+
+## Adicionar jogos
+
+Os jogos da Steam, Epic e GOG aparecem sozinhos. Para os outros, aperte **N** (ou **Y** no controle):
+
+1. Escolha a **plataforma** (Windows, Switch, PS2…).
+2. Escolha o **executável**. Atalhos `.lnk` e `.bat` também funcionam.
+3. Dê um nome e, se quiser, argumentos e uma capa.
+
+**Jogos de console:** o executável é o do **emulador** e os argumentos levam o caminho do jogo, por exemplo `-f "D:\Roms\jogo.iso"`. Cada emulador tem a sua sintaxe (veja a documentação dele).
+O botão "Procurar" abre a janela do Windows, que o controle não opera; no controle, use o **teclado na tela**: **A** digita, **X** apaga, **Y** dá espaço, **LB/RB** movem o cursor, **View** alterna maiúsculas, **Start** confirma, **B** cancela.
+
+> O All in One **não** inclui emuladores nem jogos. Use apenas jogos que você tem o direito de usar.
+
+## Capas
+
+Menu (Tab / Start) sobre o jogo → **Trocar capa** (ou **Adicionar capa**), ou **arraste uma imagem** PNG, JPG ou WEBP para a janela com o jogo selecionado.
+A capa escolhida não é trocada pela busca automática. **Remover capa personalizada** volta ao normal.
+As capas dos jogos da Steam são baixadas sozinhas. Epic e GOG ganham um pôster gerado a partir do nome, até você colocar uma capa.
+
+## Ícones das plataformas
+
+O app traz **desenhos próprios** para cada plataforma. Se quiser usar outras imagens (por exemplo, logos oficiais que você tenha):
+
+1. No menu, abra **Ícones das plataformas**. Isso abre a pasta `%APPDATA%\AllInOne\platform-icons\`.
+2. Coloque os arquivos (`.svg`, `.png`, `.webp`…) com o **id da plataforma** como nome: `switch.svg`, `ps2.png`, `x360.webp`…
+3. O `LEIA-ME.txt` da pasta lista todos os ids. O app passa a usar os arquivos na hora.
+
+## Discord Rich Presence
+
+Com o Discord aberto no PC, seu perfil mostra o que você está fazendo:
+
+- **Escolhendo plataforma:** "Escolhendo o próximo mundo", com a posição no carrossel.
+- **Navegando:** "Explorando Nintendo Switch", "Olhando Hades".
+- **Jogando:** "Jogando Hades", "PC · via Steam", com cronômetro.
+
+No menu, **Discord Rich Presence** alterna entre **completo**, **discreto** (só a plataforma, sem nome de jogo) e **desligado**, e mostra se o Discord foi encontrado.
+Se algo não aparecer, veja o arquivo `%APPDATA%\AllInOne\presence.log` e confira, no Discord, em *Configurações → Privacidade de Atividade*, se o compartilhamento de atividade está ligado.
+Para usar o seu próprio aplicativo do Discord (com suas imagens), coloque o *Application ID* em `%APPDATA%\AllInOne\config.json`: `{ "discordAppId": "SEU_ID" }`.
+
+## Privacidade
+
+- Nada sai do seu PC, exceto: (1) o download das capas dos jogos da **Steam**, direto do servidor da Steam; (2) a conversa **local** com o app do Discord, se o Rich Presence estiver ligado.
+- A biblioteca, os favoritos e as capas ficam em `%APPDATA%\AllInOne\`. Para zerar tudo, feche o app e apague essa pasta.
+
+## Perguntas comuns
+
+**Um jogo da Epic/GOG não apareceu.** Aperte **R** (View) para atualizar. A Epic só lista jogos instalados pelo Epic Games Launcher; na GOG, só os instalados pelo instalador oficial. Os que faltarem, adicione à mão.
+**O controle não responde.** Clique na janela uma vez e mexa em um botão. O app usa o padrão Xbox (XInput); outros controles podem precisar do modo Xbox/XInput.
+**Não vejo a plataforma X.** Plataformas sem jogos ficam ocultas. Menu → **Consoles sem jogos** mostra todas.
+**Quero a música baixa ou desligada.** Menu → Música e Efeitos, separados.
 
 ## Para desenvolver
 
@@ -26,135 +122,30 @@ npm install
 npm start            # tela cheia
 npm run windowed     # em janela
 npm run build        # gera dist\All in One-win32-x64\All in One.exe
-npm test             # testes dos leitores de Steam/Epic/GOG, biblioteca e Rich Presence
+npm test             # leitores de Steam/Epic/GOG, biblioteca e Rich Presence
 ```
-(ou `iniciar.bat`, que faz o `npm install` na primeira vez e abre o app)
+(ou `iniciar.bat`, que faz o `npm install` na primeira vez e abre o app; `construir-exe.bat` gera o `.exe`)
 
-## Controles
-
-| Teclado | Controle | Ação |
-|---|---|---|
-| ← → | direcional / analógico | navegar |
-| Enter | A | abrir plataforma / jogar |
-| F | X | favoritar |
-| Tab ou I | Start | menu de opções |
-| N | Y | adicionar jogo |
-| Q / E | LB / RB | trocar filtro (ou grupo de consoles) |
-| PgUp / PgDn | LT / RT | pular uma página |
-| R | View | atualizar biblioteca |
-| M | — | ligar/desligar a música |
-| Esc | B | voltar / fechar |
-| F11 | — | alternar tela cheia |
-| Ctrl+Q ou fechar a janela | — | sair (pede confirmação) |
-
-Nas listas, ← no primeiro item pula para o último e → no último volta ao primeiro (segurar a tecla para no extremo).
-Roda do mouse, clique e o ícone de som no canto também funcionam.
-
-## Plataformas (pré-carrossel)
-
-O app abre num carrossel de **plataformas**: Windows (Steam, Epic, GOG e jogos manuais de PC), Switch, PS1–PS5, PSP,
-SNES, GBA, Xbox 360, Xbox One e muitos outros (NES, N64, GameCube, Wii, DS, 3DS, Vita, Mega Drive, Saturn, Dreamcast…).
-Entre numa plataforma com **A / Enter**; **B / Esc** volta. **Q / E** trocam o grupo (PC, Nintendo, PlayStation, Xbox, Sega…).
-Plataformas sem jogos ficam ocultas; para vê-las, menu > "Consoles sem jogos".
-
-**Ícones das plataformas.** Os ícones que vêm no app são desenhos originais. Para usar os logos oficiais, coloque os arquivos
-(`.svg`, `.png`, `.webp`…) em `%APPDATA%\AllInOne\platform-icons\` com o id da plataforma como nome (`switch.svg`, `ps2.png`,
-`x360.png`…). O menu > "Ícones das plataformas" abre a pasta, que traz um `LEIA-ME.txt` com todos os ids. O app usa os arquivos na hora.
-
-## Teclado na tela
-
-Nos campos de texto do formulário (nome, executável, argumentos), **A** abre um teclado virtual, sem depender do teclado físico.
-Direcional move, **A** digita, **X** apaga, **Y** espaço, **LB/RB** movem o cursor, **View** alterna maiúsculas,
-**Start** confirma, **B** cancela. Há camadas de símbolos e acentos.
-
-## Abertura e encerramento
-
-O app abre com uma animação de abertura (pode ser pulada com qualquer botão e desligada no menu > "Animação de abertura")
-e encerra com uma animação de saída, sempre depois de uma confirmação ("Sair do All in One?").
-Jogos já abertos continuam rodando.
-
-## Som
-
-Todo o áudio é sintetizado pelo próprio programa (nenhum arquivo de som):
-
-- **Música de fundo** ambiente, gerada em tempo real. Ela abaixa quando um jogo abre, cala enquanto você joga e volta quando você retorna ao hub.
-- **Cada jogo tem sua própria nota**, que toca ao passar por ele (o mesmo jogo soa igual sempre).
-- Sons de confirmar, jogar, voltar, trocar de filtro, abrir o menu, favoritar, erro e abertura.
-
-Música e efeitos podem ser ligados/desligados separadamente no menu (Tab). A escolha fica salva.
-
-## Jogos manuais
-
-Aperte **N** (ou "Adicionar jogo" no menu). Escolha a **plataforma** (Windows, Switch, PS2…), o `.exe`, ajuste o nome se quiser,
-e opcionalmente informe argumentos de linha de comando e uma imagem de capa.
-Para jogos de console, o executável é o do emulador e os argumentos levam o caminho da ROM/imagem
-(ex.: `-f "D:\Roms\jogo.iso"`). O botão "Procurar" abre a janela do Windows, que não é operável pelo controle; use o teclado na tela para digitar o caminho.
-Sem capa, o jogo ganha um pôster gerado a partir do nome. Para editar ou remover, abra o menu (Tab) sobre o jogo.
-Atalhos `.lnk`, `.bat` e programas que pedem administrador também funcionam.
-
-## Capas
-
-Qualquer jogo (Steam, Epic, GOG ou manual) pode ganhar uma capa sua: menu (Tab / Start) > **Trocar capa** (ou **Adicionar capa**
-quando ele ainda não tem), ou **arraste uma imagem** PNG/JPG/WEBP para a janela com o jogo selecionado.
-Ela não é trocada pela busca automática. **Remover capa personalizada** volta ao normal (na Steam, o app busca a oficial de novo).
-O seletor de arquivos é a janela do Windows, que o controle não opera; use o arrastar ou o teclado/mouse.
-
-## Discord Rich Presence
-
-O perfil do Discord mostra o que você está fazendo no All in One (o Discord precisa estar aberto no PC):
-
-- **Na tela de plataformas:** "Escolhendo o próximo mundo", com frases que se alternam ("Just play all in one"…) e a posição no carrossel ("3 of 8").
-- **Dentro de uma plataforma:** "Explorando Nintendo Switch", "Olhando Hades" e a posição na lista.
-- **Jogando:** "Jogando Hades", "PC · via Steam" ou o console, com cronômetro. Quando o jogo fecha, volta ao modo de navegação.
-
-**Ativar (uma vez):**
-1. Em https://discord.com/developers/applications crie um aplicativo chamado **All in One** (esse nome aparece como "Jogando All in One").
-2. Copie o **Application ID** e coloque em `%APPDATA%\AllInOne\config.json`:
-   `{ "discordAppId": "123456789012345678" }` (ou me peça para gravá-lo no app).
-3. Em **Rich Presence > Art Assets** do mesmo aplicativo, envie as imagens (pelo menos 512×512) com estes nomes:
-   `logo` (a grande) e uma por plataforma, com o id como nome: `windows`, `switch`, `ps1`…`ps5`, `psp`, `snes`, `gba`, `x360`, `xone`…
-   (os ids estão em `LEIA-ME.txt` da pasta de ícones). Sem imagem, a presença funciona do mesmo jeito, só sem o desenho. Novos assets levam alguns minutos para aparecer.
-4. Reinicie o All in One.
-
-No menu (Tab / Start) o item **Discord Rich Presence** alterna entre **completo** (mostra nomes de jogos), **discreto** (só a plataforma, sem nome de jogo) e **desligado**.
-
-Como o app sabe que o jogo fechou: Steam pelo registro do Windows, `.exe` (manual/GOG/emuladores) pelo processo,
-e Epic/atalhos pela volta ao All in One depois de 20 s. Nesses últimos a presença pode demorar a voltar ao normal.
-
-## Onde ficam os dados
-
-`%APPDATA%\AllInOne\library.json` (biblioteca, favoritos, jogos manuais) e `%APPDATA%\AllInOne\covers\` (capas).
-Para zerar tudo, feche o app e apague essa pasta.
-
-## Estrutura
+Electron + HTML/CSS/JS puro, sem framework e sem dependências no Rich Presence.
 
 ```
 main.js              janela, IPC, abrir jogos
 preload.js           ponte segura entre a interface e o main
 src/providers/       um módulo por loja: steam, epic, gog (scan() devolve a lista de jogos)
 src/library.js       biblioteca em JSON: manuais, favoritos, ocultos, capas
-src/discord.js       cliente do Discord Rich Presence (IPC local, sem dependências)
+src/discord.js       cliente do Discord Rich Presence (IPC local)
 src/presence.js      o que mostrar no Discord + detecção de jogo aberto/fechado
-src/covers.js        baixa capas da Steam e extrai a cor do fundo
-src/lib/             vdf, argumentos, nomes, PowerShell
-renderer/            interface (HTML/CSS/JS puro): app.js (lógica), platforms.js (consoles), osk.js (teclado na tela),
-                     cinematic.js (abertura/encerramento), audio.js (som), style.css, fonts/
-scripts/build.js     empacota o .exe (Electron + troca do ícone)
-build/               ícone do app
-test/                node test/parsers.test.js
+src/covers.js        capas da Steam e cor do fundo
+renderer/            interface: app.js, platforms.js, osk.js (teclado na tela), cinematic.js, audio.js, style.css
+scripts/build.js     empacota o .exe
+test/                testes
 ```
 
 Para suportar outra loja, crie `src/providers/<loja>.js` com um `scan()` e registre em `src/providers/index.js`.
+Histórico de versões no [CHANGELOG](CHANGELOG.md).
 
-## Como cada loja é detectada
+## Créditos e avisos
 
-- **Steam:** `libraryfolders.vdf` + `appmanifest_*.acf` de cada biblioteca. Abre por `steam://rungameid/ID`. Capas vêm do CDN da Steam.
-- **Epic:** manifestos `.item` em `ProgramData\Epic\EpicGamesLauncher\Data\Manifests`. Abre pelo protocolo `com.epicgames.launcher://`.
-- **GOG:** registro do Windows (`GOG.com\Games`). Abre o executável direto, sem precisar do Galaxy.
-
-Capas de Epic e GOG ainda não são baixadas: esses jogos aparecem com o pôster gerado.
-Só nos jogos manuais dá para escolher uma imagem.
-
-## Fontes
-
-Oxanium e JetBrains Mono (licença SIL OFL), incluídas em `renderer/fonts/`.
+- Fontes **Oxanium** e **JetBrains Mono** (licença SIL OFL), incluídas em `renderer/fonts/`.
+- Nintendo, Switch, PlayStation, Xbox, Steam, Epic Games, GOG, Discord e as demais marcas citadas pertencem aos seus donos.
+  O All in One é um projeto independente e **não tem vínculo** com nenhuma dessas empresas.
