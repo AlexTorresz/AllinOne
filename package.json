@@ -1,0 +1,19 @@
+{
+  "name": "all-in-one",
+  "productName": "All in One",
+  "version": "0.1.0",
+  "description": "Hub de games estilo console: Steam, Epic, GOG e jogos manuais em um só lugar.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "windowed": "electron . --windowed",
+    "test": "node test/parsers.test.js && node test/presence.test.js",
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "electron": "^45.3.2",
+    "@electron/packager": "^20.3.0",
+    "resedit": "^3.1.0"
+  }
+}

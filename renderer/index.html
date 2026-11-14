@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; img-src 'self' file: data:; style-src 'self' 'unsafe-inline'; font-src 'self' file:; script-src 'self'; media-src 'self'">
+  <title>All in One</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="boot" data-mode="platforms">
+
+  <!-- fundo: capa borrada do item selecionado (ou névoa gerada) + chão em grade -->
+  <div id="bg" aria-hidden="true">
+    <div class="bgl" id="bgA"></div>
+    <div class="bgl" id="bgB"></div>
+    <div class="vig"></div>
+  </div>
+  <div class="floor" aria-hidden="true"><div class="grid"></div></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <div id="stage">
+    <header class="top">
+      <div class="logo">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 6h20l-4.5 6H3z" fill="var(--ac)"/>
+          <path d="M9 13h20l-4.5 6H9z" fill="#fff"/>
+          <path d="M3 20h20l-4.5 6H3z" fill="var(--ac2)"/>
+        </svg>
+        <span>All in One</span>
+        <span id="crumb" class="crumb" hidden></span>
+      </div>
+
+      <nav class="tabsbar">
+        <kbd id="kPrev" class="shoulder">Q</kbd>
+        <div id="filters" class="tabs"></div>
+        <kbd id="kNext" class="shoulder">E</kbd>
+      </nav>
+
+      <div class="sys">
+        <svg id="padIcon" class="ico pad" viewBox="0 0 24 24" aria-label="Controle conectado">
+          <path d="M7 7h10a5 5 0 0 1 4.8 6.4l-1 3.4a2.4 2.4 0 0 1-4 1L15 16H9l-1.8 1.8a2.4 2.4 0 0 1-4-1l-1-3.4A5 5 0 0 1 7 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M7.5 10v3M6 11.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16" cy="10.8" r="1" fill="currentColor"/><circle cx="18" cy="12.6" r="1" fill="currentColor"/>
+        </svg>
+        <svg id="sndIcon" class="ico snd" viewBox="0 0 24 24" aria-label="Som">
+          <path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/>
+          <path class="w" d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="x" d="M15.5 9.5l5 5M20.5 9.5l-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span id="clock">--:--</span>
+      </div>
+    </header>
+
+    <section id="hero" class="hero">
+      <div id="ghost" class="ghost">00</div>
+      <div class="tag">
+        <span id="plat" class="chip"></span>
+        <span id="favMark" class="fav" hidden>
+          <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L12 17l-5.6 3 1.3-6.2L3 9.5l6.3-.7z" fill="currentColor"/></svg>
+          Favorito
+        </span>
+      </div>
+      <h1 id="title"></h1>
+      <div class="cta">
+        <button id="play" class="play" type="button"><i></i><span id="playLabel">Jogar</span></button>
+        <span id="played" class="played"></span>
+      </div>
+    </section>
+
+    <section id="deck" class="deck"></section>
+
+    <footer class="foot">
+      <div class="rail"><i id="railFill"></i></div>
+      <div class="footrow">
+        <div id="hints" class="hints"></div>
+        <div class="count"><b id="idx">00</b><span id="of">/ 00</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="emptyMsg" class="empty"><p id="emptyTitle"></p><p id="emptySub"></p></div>
+  <div id="toast" class="toast"></div>
+
+  <!-- menu lateral -->
+  <div id="menu" class="overlay">
+    <div class="scrim"></div>
+    <aside class="drawer">
+      <p class="eyebrow" id="menuTitle"></p>
+      <ul id="menuList" class="menu"></ul>
+    </aside>
+  </div>
+
+  <!-- adicionar / editar jogo -->
+  <div id="form" class="overlay modal">
+    <div class="scrim"></div>
+    <form class="sheet" autocomplete="off" novalidate>
+      <p class="eyebrow" id="formEyebrow">Novo jogo</p>
+
+      <div class="field" data-row>
+        <span>Plataforma</span>
+        <button type="button" id="fPlat" class="platbtn" data-f data-act="plat">
+          <i id="fPlatGlyph"></i><b id="fPlatName"></b><em>alterar</em>
+        </button>
+      </div>
+      <div class="field" data-row>
+        <span>Nome</span>
+        <input id="fTitle" type="text" maxlength="80" spellcheck="false" data-f data-osk="Nome do jogo">
+      </div>
+      <div class="field" data-row>
+        <span id="lblExe">Executável</span>
+        <div class="row">
+          <input id="fExe" type="text" spellcheck="false" placeholder="Escolha o arquivo do jogo" data-f data-osk="Caminho do executável">
+          <button type="button" data-f data-act="exe">Procurar</button>
+        </div>
+      </div>
+      <div class="field" data-row>
+        <span id="lblArgs">Argumentos <i>opcional</i></span>
+        <input id="fArgs" type="text" spellcheck="false" data-f data-osk="Argumentos">
+      </div>
+      <div class="field" data-row>
+        <span>Capa <i>opcional</i></span>
+        <div class="row">
+          <input id="fCover" type="text" readonly tabindex="-1" placeholder="Gerada automaticamente">
+          <button type="button" data-f data-act="cover">Procurar</button>
+          <button type="button" data-f data-act="nocover">Limpar</button>
+        </div>
+      </div>
+
+      <div class="actions" data-row>
+        <button type="button" data-f data-act="cancel">Cancelar</button>
+        <button type="submit" data-f class="primary">Salvar</button>
+      </div>
+      <p id="formErr" class="err"></p>
+      <div id="formHints" class="sheethints"></div>
+    </form>
+  </div>
+
+  <!-- escolher plataforma -->
+  <div id="picker" class="overlay modal">
+    <div class="scrim"></div>
+    <div class="sheet wide">
+      <p class="eyebrow">Escolha a plataforma</p>
+      <div id="pickList" class="plist"></div>
+      <div id="pickHints" class="sheethints"></div>
+    </div>
+  </div>
+
+  <!-- teclado virtual -->
+  <div id="osk" class="overlay">
+    <div class="scrim"></div>
+    <div class="oskpanel">
+      <div class="oskhead">
+        <p class="eyebrow" id="oskLabel"></p>
+        <span id="oskLen" class="oskLen"></span>
+      </div>
+      <div class="oskfield"><div class="oskline"><span id="oskBefore"></span><i class="caret"></i><span id="oskAfter"></span></div></div>
+      <div id="oskKeys" class="keys"></div>
+      <div id="oskHints" class="sheethints"></div>
+    </div>
+  </div>
+
+  <!-- confirmação -->
+  <div id="confirm" class="overlay modal">
+    <div class="scrim"></div>
+    <div class="sheet small">
+      <p class="eyebrow" id="cfEyebrow"></p>
+      <h3 id="cfTitle"></h3>
+      <p id="cfText" class="cftext"></p>
+      <div class="actions">
+        <button type="button" id="cfNo"></button>
+        <button type="button" id="cfYes" class="primary"></button>
+      </div>
+      <div id="cfHints" class="sheethints"></div>
+    </div>
+  </div>
+
+  <!-- abrindo o jogo -->
+  <div id="launch" class="launch">
+    <div class="lw">
+      <p class="eyebrow">Iniciando</p>
+      <h2 id="launchTitle"></h2>
+      <div class="bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- ABERTURA -->
+  <div id="splash" class="splash" aria-hidden="true">
+    <canvas id="fx"></canvas>
+    <div class="rays"></div>
+    <div class="vign"></div>
+    <div class="scene">
+      <div class="markwrap">
+        <i class="ring r1"></i><i class="ring r2"></i>
+        <svg class="mark ca ca-r" viewBox="0 0 32 32"><use href="#shape"/></svg>
+        <svg class="mark ca ca-b" viewBox="0 0 32 32"><use href="#shape"/></svg>
+        <svg class="mark main" viewBox="0 0 32 32">
+          <defs>
+            <g id="shape">
+              <path d="M3 6h20l-4.5 6H3z"/>
+              <path d="M9 13h20l-4.5 6H9z"/>
+              <path d="M3 20h20l-4.5 6H3z"/>
+            </g>
+          </defs>
+          <path class="b1" d="M3 6h20l-4.5 6H3z"/>
+          <path class="b2" d="M9 13h20l-4.5 6H9z"/>
+          <path class="b3" d="M3 20h20l-4.5 6H3z"/>
+        </svg>
+        <i class="flash"></i>
+      </div>
+      <div id="word" class="word" aria-label="All in One"></div>
+      <i class="rule"></i>
+      <p class="tagline">Just play all in one</p>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div id="outro" class="outro" aria-hidden="true">
+    <div class="o-bg"></div>
+    <i class="o-ring"></i>
+    <div class="o-wrap">
+      <svg class="mark" viewBox="0 0 32 32">
+        <path class="b1" d="M3 6h20l-4.5 6H3z"/>
+        <path class="b2" d="M9 13h20l-4.5 6H9z"/>
+        <path class="b3" d="M3 20h20l-4.5 6H3z"/>
+      </svg>
+      <p class="o-word">All in One</p>
+    </div>
+    <i class="o-line"></i>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="platforms.js"></script>
+  <script src="osk.js"></script>
+  <script src="cinematic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
