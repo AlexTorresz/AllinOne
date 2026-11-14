@@ -2,6 +2,16 @@
 
 Hub de games estilo console. Reúne Steam, Epic, GOG e jogos instalados à mão em um carrossel só.
 
+## Instalar (para quem só quer usar)
+
+1. Baixe o `AllInOne-v0.1.0-win-x64.zip` na página de **Releases** do repositório e extraia a pasta onde quiser.
+2. Abra o `All in One.exe`. Não precisa instalar nada.
+3. **Aviso do Windows:** como o app não tem assinatura digital paga, o SmartScreen pode mostrar "O Windows protegeu seu PC".
+   Clique em **Mais informações → Executar assim mesmo**. O código-fonte está aberto neste repositório para você conferir.
+4. Seus jogos da Steam, Epic e GOG aparecem sozinhos. Aperte **N** (ou Y no controle) para adicionar jogos manuais e de console.
+
+Requer Windows 10/11 de 64 bits.
+
 ## Como usar
 
 **Dê dois cliques em `dist\All in One-win32-x64\All in One.exe`.** Não precisa de Node nem de `.bat`.
