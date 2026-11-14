@@ -113,7 +113,7 @@ Para usar o seu próprio aplicativo do Discord (com suas imagens), coloque o *Ap
 **Um jogo da Epic/GOG não apareceu.** Aperte **R** (View) para atualizar. A Epic só lista jogos instalados pelo Epic Games Launcher; na GOG, só os instalados pelo instalador oficial. Os que faltarem, adicione à mão.
 **O controle não responde.** Clique na janela uma vez e mexa em um botão. O app usa o padrão Xbox (XInput); outros controles podem precisar do modo Xbox/XInput.
 **Não vejo a plataforma X.** Plataformas sem jogos ficam ocultas. Menu → **Consoles sem jogos** mostra todas.
-**Quero a música baixa ou desligada.** Menu → Música e Efeitos, separados.
+**Quero a música baixa ou desligada.** Menu → **Música** e **Efeitos sonoros**, ligados e desligados separadamente.
 
 ## Para desenvolver
 
